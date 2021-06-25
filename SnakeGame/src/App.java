@@ -14,7 +14,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
-
+import java.awt.BorderLayout;
 
 public class App extends Application {
 
@@ -53,15 +53,22 @@ public class App extends Application {
 			int in;
 
 			// JOptionPane 
-			String start = "Wanna play a game?";
 			String[] options = {"pacman", "snake"};
-			in = JOptionPane.showOptionDialog(null, start, "Game Stimulator", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+			ImageIcon dab = new ImageIcon("src/images/pacmanAndSnake.jpg");
+			JLabel icon = new JLabel(dab);
+			JLabel text = new JLabel("                             Wanna play a game?");
+
+			JPanel panel = new JPanel();
+			panel.setLayout(new BorderLayout());
+			panel.add(icon,BorderLayout.CENTER);
+			panel.add(text,BorderLayout.SOUTH);
+
+			in = JOptionPane.showOptionDialog(null, panel , "Game Stimulator", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null , options, options[0]);
 			
 			if(in == 0){
 				new Pacman();
 			}else if(in == 1){
-				
-				
+
 				newFood();
 				// We create a VBox and a Canvas as background. 
 				VBox root = new VBox();//Instantiate VBox layout class
@@ -117,6 +124,8 @@ public class App extends Application {
 				primaryStage.setScene(scene);//set a JavaFX Scene object on the Stage
 				primaryStage.setTitle("SNAKE GAME"); // The title will display in the title bar of the Stage Window
 				primaryStage.show(); // show() makes the Stage visible and the exits the show() method immediately
+			}else if(in == -1){
+				System.exit(0);
 			}
 		} catch (Exception e) {
 			e.printStackTrace(); //  handle exceptions and errors,Java’s throwable class, 
