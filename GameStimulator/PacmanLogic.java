@@ -24,8 +24,8 @@ public class PacmanLogic extends JPanel implements ActionListener {//programming
     //rules of games
     private final int MAX_GHOSTS = 12;//max number of enemies
     private final int SPEED = 6;//speed of pacman
-    private final int validSpeeds[] = {1, 2, 3, 4, 6, 8};
-    private final int maxSpeed = 6;//maximum speed of pacman
+    private final int VALID_SPEEDS[] = {1, 2, 3, 4, 6, 8};
+    private final int MAX_SPEED = 6;//maximum speed of pacman
 
         
     //game status
@@ -184,7 +184,7 @@ public class PacmanLogic extends JPanel implements ActionListener {//programming
                 random = currentSpeed;
             }
 
-            ghostSpeed[i] = validSpeeds[random];
+            ghostSpeed[i] = VALID_SPEEDS[random];
         }
 
         //start position of pacman
@@ -360,7 +360,7 @@ public class PacmanLogic extends JPanel implements ActionListener {//programming
                 num_ghost++;
             } 
 
-            if (currentSpeed < maxSpeed) {
+            if (currentSpeed < MAX_SPEED) {
                 currentSpeed++; //faster speed, so the game is more difficult
             }
 
