@@ -1,7 +1,4 @@
-package src;
-
 import javax.swing.*;
-
 
 public class Pacman extends JFrame{//launch the game
 
